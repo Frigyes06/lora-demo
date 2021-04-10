@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MetLoRa</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+	  html, body{
+		background-color: #3399ff;
+	  }
+      #map {
+        height: 850px;
+        width: 100%;
+		border-radius: 25px;
+		position: relative;
+      }
+	  #title_text{
+		width: 25%;
+		text-align: center;
+		font-family: roboto;
+		background-color: #d9d9d9;
+		border-radius: 25px;
+		margin: 0 auto;
+	  }
+    </style>
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        const hungary = { lat: 47.1575621, lng: 18.3839504};
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 7,
+          center: hungary,
+        });
+        // The marker, positioned at Uluru
+        const node1 = new google.maps.Marker({
+          position: {lat: 47.488830, lng: 19.079320},
+          map: map,
+		  title: "node1",
+        });
+		node1.addListener("click", () => {
+			map.setZoom(8);
+			map.setCenter(node1.getPosition());
+			window.location.href = "./node1.html";
+		});
+      }
+    </script>
+  </head>
+  <body>
+	<div id="title_text">
+		<h1>Szenzorkereső</h1>
+	</div>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfIFc4mkok7cyS59XunZRFwMiyrN5fUyA&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Node 1 - Budapest</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<style type="text/css">
+		html{
+			background-color: #3399ff;
+		}
+		#title{
+			width: 25%;
+			text-align: center;
+			font-family: roboto;
+			background-color: #d9d9d9;
+			border-radius: 25px;
+			margin: 0 auto;
+		}
+		#current{
+			width: 25%;
+			text-align: center;
+			font-family: roboto;
+			background-color: #d9d9d9;
+			border-radius: 25px;
+			padding: 15px;
+			margin: 0 auto;
+		}
+		h4{
+			line-height: 10px;
+		}
+	</style>
+</head>
+<body>
+<div id="title">
+	<h1>Node 1, Budapest</h1>
+</div>
+<div id="current">
+	<h3 id="timestamp"></h3>
+	<h4 id="hum"></h4>
+	<h4 id="temp"></h4>
+	<h4 id="pres"></h4>
+</div>
+
+<script>
+		var data = {
+			"0":{"humidity":"67","temperature":"4.13","pressure":"1018.67"},
+			"1":{"humidity":"68","temperature":"4.67","pressure":"1017.84"},
+			"2":{"humidity":"68","temperature":"5.12","pressure":"1016.95"},
+			"3":{"humidity":"68","temperature":"5.43","pressure":"1016.21"},
+			"4":{"humidity":"66","temperature":"6.21","pressure":"1015.34"},
+			"5":{"humidity":"65","temperature":"6.95","pressure":"1014.43"},
+			"6":{"humidity":"68","temperature":"7.23","pressure":"1013.67"},
+			"7":{"humidity":"71","temperature":"8.01","pressure":"1012.32"},
+			"8":{"humidity":"69","temperature":"10.21","pressure":"1011.31"},
+			"9":{"humidity":"67","temperature":"12.43","pressure":"1010.54"},
+			"10":{"humidity":"65","temperature":"13.59","pressure":"1009.87"},
+			"11":{"humidity":"63","temperature":"15.68","pressure":"1009.13"},
+			"12":{"humidity":"60","temperature":"16.54","pressure":"1008.47"},
+			"13":{"humidity":"58","temperature":"16.23","pressure":"1007.96"},
+			"14":{"humidity":"57","temperature":"15.38","pressure":"1007.14"},
+			"15":{"humidity":"59","temperature":"14.67","pressure":"1006.67"},
+			"16":{"humidity":"60","temperature":"12.54","pressure":"1006.34"},
+			"17":{"humidity":"59","temperature":"11.21","pressure":"1005.93"},
+			"18":{"humidity":"63","temperature":"9.81","pressure":"1005.27"},
+			"19":{"humidity":"68","temperature":"7.34","pressure":"1004.87"},
+			"20":{"humidity":"74","temperature":"6.42","pressure":"1004.72"},
+			"21":{"humidity":"85","temperature":"5.46","pressure":"1003.98"},
+			"22":{"humidity":"84","temperature":"4.38","pressure":"1004.21"},
+			"23":{"humidity":"82","temperature":"3.95","pressure":"1005.15"}
+		}
+		let currentDate = new Date()
+		var n = currentDate.getHours();
+		var timestamp = "Jelenlegi adatok (" + n +":00)"
+		var humidity = String("páratartalom: " + (data[n].humidity) + "%");
+		var temperature = String("hőmérséklet: " + (data[n].temperature) + "°C");
+		var pressure = String("légnyomás: " + (data[n].pressure) + "hPa");
+		document.getElementById("timestamp").innerHTML = timestamp;
+		document.getElementById("hum").innerHTML = humidity;
+		document.getElementById("temp").innerHTML = temperature;
+		document.getElementById("pres").innerHTML = pressure;
+	</script>
+</body>
+</html>
